@@ -53,9 +53,10 @@ router.post('/', (req, res) => {
 /**
  * @route   GET api/auth/user
  * @desc    Get user data
- * @access  Privaae
+ * @access  Private
  */
 router.get('/user', auth, (req, res) => {
+    console.log(123)
     User.findById(req.user.id)
     .select('-password')
     .then(user => res.json(user));
